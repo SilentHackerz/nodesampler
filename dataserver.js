@@ -26,8 +26,18 @@ server.get('/randomname', function(request, response){
 	db.connect( function(){
 		db.query('SELECT * FROM usernames', function( error, data){
 			if(!error){
-				const randomNameIndex = Math.floor(data.length * Math.random());
-				response.send(data[randomNameIndex].name);
+				const count = parseInt(request.query.count);
+				const nameArray = [];
+				while(nameArray.length < count){
+					const randomNameIndex = Math.floor(data.length * Math.random());
+					nameArray.push( data[randomNameIndex].name)
+				}
+				
+				const output = {
+					success: true,
+					data: nameArray
+				}
+				response.send( output );
 			} else {
 				response.send("oops");
 			}
