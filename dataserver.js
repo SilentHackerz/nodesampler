@@ -24,21 +24,17 @@ server.get('/randomtime', function(request, response){
 
 server.get('/randomname', function(request, response){
 	db.connect( function(){
-		db.query('SELECT * FROM usernames', function( error, data){
+		const result = db.query(`SELECT * FROM usernames ORDER BY RAND() LIMIT ${request.query.count}`, function( error, data){
 			if(!error){
-				const count = parseInt(request.query.count);
-				const nameArray = [];
-				while(nameArray.length < count){
-					const randomNameIndex = Math.floor(data.length * Math.random());
-					nameArray.push( data[randomNameIndex].name)
-				}
 				
 				const output = {
 					success: true,
-					data: nameArray
+					data: data
 				}
 				response.send( output );
 			} else {
+				console.log(result.sql);
+				console.log(error);
 				response.send("oops");
 			}
 		});
