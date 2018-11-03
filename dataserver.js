@@ -22,6 +22,32 @@ server.get('/randomtime', function(request, response){
 	response.send(`<strong>${randomNumber}</strong>`);
 })
 
+server.get('/randomname', function(request, response){
+	db.connect( function(){
+		db.query('SELECT * FROM usernames', function( error, data){
+			if(!error){
+				const randomNameIndex = Math.floor(data.length * Math.random());
+				response.send(data[randomNameIndex].name);
+			} else {
+				response.send("oops");
+			}
+		});
+	})
+})
+
 server.listen(3005, function(){
 	console.log('the server is operational and angry');
 })
+
+
+
+
+
+
+
+
+
+
+
+
+

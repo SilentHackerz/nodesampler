@@ -1,15 +1,20 @@
 
-function changeBodyContent(){
-	$.ajax({
-		url: '/randomtime',
-		success: function(response){
-			$("body").html(response);
-		}
-	})
+
+function startApp(){
+	$("#getPerson").click(getName);
+}
+
+function getName(){
+	const ajaxOptions = {
+		url: '/randomname',
+		success: handleNameRetrieval
+	}
+	$.ajax(ajaxOptions);
+}
+
+function handleNameRetrieval( response ){
+	$("#display > span").text(response);
 }
 
 
-
-
-
-changeBodyContent();
+startApp();
