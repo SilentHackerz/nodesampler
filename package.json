@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/dpaschal-lf/nodesampler/issues"
   },
-  "homepage": "https://github.com/dpaschal-lf/nodesampler#readme"
+  "homepage": "https://github.com/dpaschal-lf/nodesampler#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
