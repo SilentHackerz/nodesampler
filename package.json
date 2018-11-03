@@ -1,0 +1,20 @@
+{
+  "name": "nodesampler",
+  "version": "1.0.0",
+  "description": "all nodes with all the samples",
+  "main": "dataserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dataserver.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpaschal-lf/nodesampler.git"
+  },
+  "author": "Daniel Paschal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpaschal-lf/nodesampler/issues"
+  },
+  "homepage": "https://github.com/dpaschal-lf/nodesampler#readme"
+}
