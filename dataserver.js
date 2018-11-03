@@ -5,6 +5,10 @@ const server = express();
 
 const mysql = require('mysql');
 
+const credentials = require('./mysqlcreds.js');
+
+const db = mysql.createConnection(credentials);
+
 server.use( express.static(__dirname + '/html' ));
 
 server.get('/', function(request, response){
